@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "author": "The Island (git://github.com/The-Island)",
+  "name": "island-api",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/The-Island/island-api.git"
+  },
+  "dependencies": {
+    "island-util": "git+https://island-ebs:i51andghebs@github.com/The-Island/island-util.git#develop",
+    "underscore": "^1.4.4",
+    "underscore.string": "~2.3.1",
+    "step": "0.0.5",
+    "mongish": "^1.0.3",
+    "restify": "^2.8.2",
+    "zmq": "^2.7.0"
+  },
+  "engines": {
+    "node": "~0.10.26"
+  }
+}
