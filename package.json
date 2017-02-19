@@ -12,7 +12,7 @@
     "underscore": "~1.8.3",
     "underscore.string": "~3.3.4",
     "step": "1.0.0",
-    "mongish": "git+https://github.com/sanderpick/mongish.git#update",
+    "mongish": "git+https://github.com/sanderpick/mongish.git#develop",
     "restify": "~4.3.0",
     "zmq": "~2.15.3"
   }
