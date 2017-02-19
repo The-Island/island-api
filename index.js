@@ -6,11 +6,11 @@
 var cluster = require('cluster');
 var restify = require('restify');
 var util = require('util');
-var sutil = require('skyline-util');
+var iutil = require('island-util');
 var fs = require('fs');
 var Step = require('step');
 var _ = require('underscore');
-_.mixin(require('underscore.string'));
+var _s = require('underscore.string');
 var db = require('mongish');
 var zmq = require('zmq');
 
@@ -50,7 +50,7 @@ var createInterface = exports.createInterface = function (opts, cb) {
     // Router handling.
     clusterFrontSock.bindSync(clusterFrontPort);
     clusterFrontSock.on('message', function () {
-      
+
       // Inform server.
       clusterBackSock.send(Array.prototype.slice.call(arguments));
     });
@@ -146,7 +146,7 @@ var createInterface = exports.createInterface = function (opts, cb) {
           return this();
         }
         _.each(opts.resources, _.bind(function (r, name) {
-          var tmp = new r[_.capitalize(name)]({sock: sock, server: server,
+          var tmp = new r[_s.capitalize(name)]({sock: sock, server: server,
               db: db, config: opts}).init(this.parallel());
         }, this));
       },
@@ -185,7 +185,7 @@ var Resource = exports.Resource = function (opts) {
 
     // Send over socket w/callback support.
     this.send = _.bind(function (msg, cb) {
-      var __cb = sutil.createId_32();
+      var __cb = iutil.createId_32();
       this.callbacks[__cb] = cb;
       this.sock.send(JSON.stringify({__cb: __cb, msg: msg}));
     }, this);
